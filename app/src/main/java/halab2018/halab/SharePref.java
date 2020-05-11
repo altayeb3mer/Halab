@@ -2,7 +2,7 @@ package halab2018.halab;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * Created by Altayeb on 9/25/2018.

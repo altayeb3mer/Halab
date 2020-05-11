@@ -7,7 +7,7 @@
     android:background="@color/darkwhite"
     tools:context="halab2018.halab.MainActivity">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/new_post_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -28,7 +28,7 @@
             android:layout_margin="5dp"
             android:orientation="vertical">
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -70,14 +70,14 @@
                         />
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sub_pro_title_edt_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/shape_rounded_regtangle_black">
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/new_post_title_edt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -90,19 +90,19 @@
                             android:textColorHint="@color/colorAccent"
                             android:textSize="15sp">
 
-                        </android.support.v7.widget.AppCompatEditText>
-                    </android.support.design.widget.TextInputLayout>
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
                     //
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sub_pro_location_edt_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/shape_rounded_regtangle_black">
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/new_post_location_edt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -115,21 +115,21 @@
                             android:textColorHint="@color/colorAccent"
                             android:textSize="15sp">
 
-                        </android.support.v7.widget.AppCompatEditText>
-                    </android.support.design.widget.TextInputLayout>
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
                     //
 
 
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sub_pro_desciption_edt_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/shape_rounded_regtangle_black">
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/new_post_desciption_edt"
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
@@ -143,16 +143,16 @@
                             android:textColorHint="@color/colorAccent"
                             android:textSize="15sp">
 
-                        </android.support.v7.widget.AppCompatEditText>
-                    </android.support.design.widget.TextInputLayout>
-                    <android.support.design.widget.TextInputLayout
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sub_pro_price_edt_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/shape_rounded_regtangle_black">
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/new_post_price_edt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -165,17 +165,17 @@
                             android:textColorHint="@color/colorAccent"
                             android:textSize="15sp">
 
-                        </android.support.v7.widget.AppCompatEditText>
-                    </android.support.design.widget.TextInputLayout>
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
 
 
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -236,7 +236,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:visibility="gone"/>
-                        <android.support.v7.widget.AppCompatButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/new_post_select_img_btn"
                             style="@style/Buttom"
                             android:layout_width="wrap_content"
@@ -252,7 +252,7 @@
                             android:gravity="center"
                             android:text="@string/select_img"
                             android:textSize="12sp" />
-                        <android.support.v7.widget.AppCompatButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/new_post_select_img_btn2"
                             style="@style/Buttom"
                             android:layout_width="wrap_content"
@@ -269,7 +269,7 @@
                             android:text="@string/click_to_select_image"
                             android:textSize="12sp"
                             android:visibility="gone"/>
-                        <android.support.v7.widget.AppCompatButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/new_post_select_img_btn3"
                             style="@style/Buttom"
                             android:layout_width="wrap_content"
@@ -286,7 +286,7 @@
                             android:text="@string/click_to_select_image"
                             android:textSize="12sp"
                             android:visibility="gone"/>
-                        <android.support.v7.widget.AppCompatButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/new_post_select_img_btn4"
                             style="@style/Buttom"
                             android:layout_width="wrap_content"
@@ -303,7 +303,7 @@
                             android:text="@string/click_to_select_image"
                             android:textSize="12sp"
                             android:visibility="gone"/>
-                        <android.support.v7.widget.AppCompatButton
+                        <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/new_post_select_img_btn5"
                             style="@style/Buttom"
                             android:layout_width="wrap_content"
@@ -326,11 +326,11 @@
 
                     </LinearLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
 
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -353,14 +353,14 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sub_pro_name_edt_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:background="@drawable/shape_rounded_regtangle_black">
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/new_post_name_edt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -373,11 +373,11 @@
                             android:textColorHint="@color/colorAccent"
                             android:textSize="15sp">
 
-                        </android.support.v7.widget.AppCompatEditText>
-                    </android.support.design.widget.TextInputLayout>
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
 
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sub_pro_email_edt_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -385,7 +385,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/shape_rounded_regtangle_black">
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/new_post_email_edt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -398,10 +398,10 @@
                             android:textColorHint="@color/colorAccent"
                             android:textSize="15sp"
                             >
-                        </android.support.v7.widget.AppCompatEditText>
-                    </android.support.design.widget.TextInputLayout>
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/sub_pro_phone_edt_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -409,7 +409,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/shape_rounded_regtangle_black">
 
-                        <android.support.v7.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/new_post_phone_edt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -422,12 +422,12 @@
                             android:textColorHint="@color/colorAccent"
                             android:textSize="15sp">
 
-                        </android.support.v7.widget.AppCompatEditText>
-                    </android.support.design.widget.TextInputLayout>
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.AppCompatButton
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/new_post_btn"
                 style="@style/Buttom"
                 android:layout_width="match_parent"

@@ -8,7 +8,7 @@
     android:layoutDirection="ltr">
 
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:id="@+id/main_toolbar"
@@ -17,7 +17,7 @@
         android:layoutDirection="ltr"
         app:navigationIcon="@drawable/ic_toolbar_on_back_press"
         app:title="@string/main_properties">
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
     <EditText
         android:id="@+id/search_main"
         android:hint="Search"
@@ -33,7 +33,7 @@
         android:gravity="center_vertical"
         android:visibility="gone"
         />
-    <android.support.design.widget.TabLayout
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/main_tablayout"
@@ -46,7 +46,7 @@
         tools:targetApi="jelly_bean_mr1"
         android:layout_marginTop="?attr/actionBarSize"/>
 
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/main_viewpager"
