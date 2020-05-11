@@ -1,0 +1,294 @@
+<resources>
+    <string name="app_name">Halab Real Estate Qatar</string>
+    <string name="search_properties">Search properties</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="exit">Exit</string>
+    <string name="open_drawer" translatable="false">Open navigation drawer</string>
+    <string name="close_drawer" translatable="false">Close navigation drawer</string>
+    <string name="LoginAc_remember_me">Remember me</string>
+    <string name="LoginAc_forget_password">Forget Password?</string>
+    <string name="LoginAc_email">Email</string>
+    <string name="LoginAc_halab_real_estate">HALAB REAL ESTATE</string>
+    <string name="LoginAc_welcome_to">WELCOME TO</string>
+    <string name="LoginAc_the_best_place_to_find_the_house_you_want">THE BEST PLACE TO FIND THE HOUSE YOU WANT.</string>
+    <string name="LoginAc_login_to_halab_real_estate">Login to Halab Real Estate</string>
+    <string name="LoginAc_new_to_halab_real_estate">New to Halab Real Estate?</string>
+    <string name="LoginAc_sign_up">Sign Up!</string>
+    <string name="LoginAc_password">password</string>
+    <string name="register_actionbar_title">Register</string>
+    <string name="login_actionbar_title">Login</string>
+    <string name="reg_yout_first_name">Name</string>
+    <string name="reg_your_password">Password</string>
+    <string name="reg_your_last_name">Phone</string>
+    <string name="reg_the_confirm_password">Confirm password</string>
+    <string name="reg_register_now_btn">Register Now</string>
+    <string name="reg_already_have_an_account">Already have an account?</string>
+    <string name="reg_sign_in">Sign In!</string>
+    <string name="contactUs_our_location">Our location</string>
+    <string name="contactus_submit">Submit</string>
+    <string name="contactAc_contact_us">Contact us</string>
+    <string name="contact_detailsAc_toolbar_title">Contact details</string>
+    <string name="contact_us_message">Message</string>
+    <string name="more_contact_details">MORE CONTACT DETAILS</string>
+    <string name="al_doha_qatar">Al-Doha, Qatar</string>
+    <string name="support_halab_realestate_com" translatable="false">info@halab-q.com</string>
+    <string name="phone_no" translatable="false">+974 7726 5221</string>
+    <string name="PropertiesAc_Properties">Properties</string>
+    <string name="qatar">Qatar</string>
+    <string name="custom_list_bathrooms">Bathrooms</string>
+    <string name="custom_list_bedrooms">Bedrooms</string>
+    <string name="custom_list_sqft" translatable="false">sqft</string>
+    <string name="custom_list_garages">Garages</string>
+    <string name="main_agent">Agent</string>
+    <string name="main_recently_properties">Recently properties</string>
+    <string name="main_properties">Properties</string>
+    <string name="main_about">About</string>
+    <string name="main_contact">Contact</string>
+    <string name="main_submit_properties">Submit properties</string>
+    <string name="toolbar_title_contact_us">Contact us</string>
+    <string name="properties_details">Properties details</string>
+    <string name="about_halab_text">Halab Real Estate provide you with best services in the real estate field with various of options to choose between them Halab Real Estate provide you with best services in the real estate field with various of options to choose between them\n</string>
+    <string name="about_buy_text">Halab Real Estate provide you with best services in the real estate field with various of options to choose between them</string>
+    <string name="progressDialog_txt">Loading...</string>
+
+    <string name="tab_all">ALL</string>
+    <string name="tab_my_added">MY ADDED</string>
+    <string name="sqft" translatable="false">sqft</string>
+
+    <string name="cars_toolbar_title">Cars</string>
+    <string name="jobs_toolbar_title">Jobs</string>
+    <string name="furniture_toolbar_title">Furniture</string>
+    <string name="conditioning_toolbar_title">Conditioning</string>
+    <string name="c_services_toolbar_title">Commercial Services</string>
+    <string name="properties">Properties</string>
+    <string name="main_jobs">Jobs</string>
+    <string name="main_jobscars">Cars</string>
+    <string name="main_furniture">Furniture</string>
+    <string name="main_conditioning">Conditioning</string>
+    <string name="main_commercial_services">Commercial Services</string>
+    <string name="custom_for_sale">For Sale</string>
+    <string name="pro_details_price">Price (QAR)</string>
+    <string name="pro_details_type">Type</string>
+    <string name="pro_details_general_information">General Information</string>
+    <string name="pro_details_amenities">Amenities</string>
+    <string name="pro_details_location">Location</string>
+    <string name="pro_details_for_sale">For Sale</string>
+    <string name="pro_det_general_info_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae consequatur, totam fugit, alias fuga aliquam quod tempora a nisi esse magnam nulla quas! Error praesentium, vero dolorum laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum rerum beatae.\n</string>
+    <string name="pro_det_air_condition">Air Condition</string>
+    <string name="pro_det_balcony">Balcony</string>
+    <string name="pro_det_internet">Internet</string>
+    <string name="property_description_and_price">Property Description And Price</string>
+    <string name="new_post">New Post</string>
+    <string name="description_and_title">Description And Title</string>
+    <string name="select_section">Select Section</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+    <string name="dialog_msg_chose_another_img">Choose another image ?</string>
+
+    <string name="dialog_msg_exit">Do you want to close app ?</string>
+    <string name="post_details_tooltitle">Post Details</string>
+    <string name="submit_post">Submit Post</string>
+    <string name="submit_properties">Submit Properties</string>
+    <string name="our">Our</string>
+    <string name="services">SERVICES</string>
+    <string name="buy_property">Buy Property</string>
+    <string name="real_estate_kit">Real Estate Kit</string>
+    <string name="setting">Setting</string>
+    <string name="property_title">property title</string>
+    <string name="property_description">property description</string>
+    <string name="post_media">Post Media</string>
+    <string name="click_to_select_image">Select another image</string>
+    <string name="contact_information">Contact Information</string>
+    <string name="name">Name</string>
+    <string name="new_post_email">Email</string>
+    <string name="new_post_phone">Phone</string>
+    <string name="sub_property_title">property title</string>
+    <string name="sub_property_description">property description</string>
+    <string name="sub_status">Status</string>
+    <string name="sub_type">Type</string>
+    <string name="sub_rooms">Rooms</string>
+    <string name="sub_price_usd">Price (QAR)</string>
+    <string name="sub_area_sqft">area (Sqft)</string>
+    <string name="sub_property_media">Property Media</string>
+    <string name="sub_property_location">Property Location</string>
+    <string name="sub_address">address</string>
+    <string name="sub_city">city</string>
+    <string name="sub_state">state</string>
+    <string name="sub_country">country</string>
+    <string name="sub_google_maps_latitude">Google maps latitude</string>
+    <string name="sub_google_maps_longitude">Google maps longitude</string>
+    <string name="sub_extra_information">Extra Information</string>
+    <string name="sub_building_age_optional">Building Age (Optional)</string>
+    <string name="sub_bedrooms_optional">Bedrooms (Optional)</string>
+    <string name="sub_bathrooms_optional">Bathrooms (Optional)</string>
+    <string name="sub_property_features">Property Features</string>
+    <string name="sub_air_conditioning">Air Conditioning</string>
+    <string name="sub_swimming_pool">Swimming Pool</string>
+    <string name="sub_central_heating">Central Heating</string>
+    <string name="sub_laundry_room">Laundry Room</string>
+    <string name="sub_gym">Gym</string>
+    <string name="sub_alarm">Alarm</string>
+    <string name="sub_window_covering">Window Covering</string>
+    <string name="sub_refrigerator">Refrigerator</string>
+    <string name="sub_tv_cable_and_wifi">TV Cable and WIFI</string>
+    <string name="sub_microwave">Microwave</string>
+    <string name="sub_contact_information">Contact Information</string>
+    <string name="sub_username">Username</string>
+    <string name="about_rent_property">Rent Property</string>
+    <string name="beds_6">Beds 6</string>
+    <string name="baths_5">Baths 5</string>
+    <string name="_750_sq_ft">750 sq ft</string>
+    <string name="kitchen_2">Kitchen 2</string>
+    <string name="balcony_2">Balcony 2</string>
+    <string name="internet">Internet</string>
+    <string name="bedding">Bedding</string>
+    <string name="cable_tv">Cable TV</string>
+
+
+    //properties status spiner
+    <string-array name="pro_status"
+        translatable="false">
+        <item>...</item>
+        <item>Rent</item>
+        <item>Sale</item>
+    </string-array>
+    //properties type spiner
+    <string-array name="pro_type"
+        translatable="false">
+        <item>...</item>
+        <item>House</item>
+        <item>Commercial</item>
+        <item>Apartment</item>
+        <item>lot</item>
+        <item>Garage</item>
+    </string-array>
+    //properties rooms spiner
+    <string-array name="pro_rooms"
+        translatable="false">
+        <item>...</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    //properties bulding age spiner
+    <string-array name="sub_pro_building_age">
+        <item>...</item>
+        <item>0_1 Years</item>
+        <item>0_5 Years</item>
+        <item>0_10 Years</item>
+        <item>0_15 Years</item>
+        <item>0_20 Years</item>
+        <item>0_50 Years</item>
+        <item>50+ Years</item>
+    </string-array>
+    //properties bedrooms spiner
+    <string-array name="sub_pro_bedrooms_age"
+        translatable="false">
+        <item>...</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    //properties bathrooms spinner
+    <string-array name="sub_pro_bathrooms_age"
+        translatable="false">
+        <item>...</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
+    //properties section spinner
+    <string-array name="section">
+        <item>Choose...</item>
+        <item>PROPERTIES</item>
+        <item>CAR</item>
+        <item>FURNITURE</item>
+        <item>CONDITIONING</item>
+        <item>COMMERCIAL SERVICE</item>
+        <item>JOB</item>
+        <item>ELECTRONIC</item>
+        <item>CLEANING</item>
+    </string-array>
+
+    //properties section spinner
+    <string-array name="section_db"
+        translatable="false">
+        <item>Choose...</item>
+        <item>PROPERTIES</item>
+        <item>JOB</item>
+        <item>CAR</item>
+        <item>FURNITURE</item>
+        <item>CONDITIONING</item>
+        <item>COMMERCIAL SERVICE</item>
+        <item>ELECTRONIC</item>
+        <item>CLEANING</item>
+    </string-array>
+
+    <string name="post_title">Post title</string>
+    <string name="post_description">Post description</string>
+
+
+    <string name="reg_error_builder_title">Error</string>
+    <string name="some_field_is_empty">Some field is empty</string>
+    <string name="add_pro_builder_unknown_error">Unknown error please try again!</string>
+    <string name="add_pro_builder_add_success">Post added successfully</string>
+    <string name="login_error_builder_ok_btn">OK</string>
+    <string name="login_error_server_not_found">Server not found</string>
+    <string name="login_error_network_error">Connection error</string>
+    <string name="login_error_no_internet_access">No internet access</string>
+
+    <string name="sale_empty_dept">This section is empty</string>
+    <string name="_000" translatable="false">000</string>
+
+    <string name="reg_password_doesnt_match">Password does not match</string>
+    <string name="username">Username</string>
+
+    <string name="login_error_builder_title"> Error</string>
+    <string name="login_error_builder_message">Username or password incorrect</string>
+    <string name="LoginAc_username">Username</string>
+    <string name="registeration_done">Registeration done..</string>
+    <string name="exist_user">This user is already exsit try another username!</string>
+    <string name="plz_login_first">Please login first and try again!</string>
+    <string name="Update_my_post">Update my post</string>
+    <string name="cleaning">Cleaning</string>
+    <string name="electronic">Electronic</string>
+    <string name="logout">Logout</string>
+    <string name="logout_msg">Logged out</string>
+    <string name="premium_tab">PREMIUM</string>
+    <string name="send_mail_extras">Halab Real Estate Qatar</string>
+    <string name="send_intent_title">Send Mail</string>
+    <string name="send_mail_error">Cannot  send the message, try again..</string>
+    <string name="isn_technology">ISN Technology</string>
+    <string name="powered_by">Powered by</string>
+    <string name="isn_technology_com" translatable="false">www.isn-technology.com</string>
+    <string name="logout_msg_builder">Login data will be deleted?</string>
+    <string name="login_seccess">Successfuly login process</string>
+    <string name="dail_no">Call</string>
+    <string name="send_failed">Error while sending your message! Try again</string>
+    <string name="send_seccess">Your message has been sent</string>
+    <string name="delete_msg">Are sure you want to delete this post ?</string>
+    <string name="delete_done">Post deleted</string>
+    <string name="delete_faild">Delete failed ! Try again</string>
+    <string name="login_cond">Please login or register to see the post</string>
+    <string name="snackbar_txt">Login to see your added posts</string>
+    <string name="no_image_found_for_this_post">No image found for this post</string>
+    <string name="state_or_region">State or region</string>
+    <string name="post_d_state_or_region">State or Region</string>
+    <string name="select_img">Click to select image</string>
+    <string name="update_success">Your post has been updated</string>
+    <string name="search">Search</string>
+    <string name="no_prmium">No premium items</string>
+
+
+</resources>

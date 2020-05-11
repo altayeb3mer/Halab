@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layoutDirection="ltr"
+    >
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/custom_list_img_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    />
+
+                <TextView
+                    android:textSize="15sp"
+                    android:layout_margin="5dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/custom_for_sale"
+                    android:background="@color/orange"
+                    android:id="@+id/textView"
+                    android:padding="5dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_margin="5dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/custom_list_country_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/qatar"
+                    android:textStyle="bold"
+                    android:textColor="@color/backroundalack"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:layout_gravity="left"
+                    />
+                <TextView
+                    android:id="@+id/custom_list_location_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/qatar"
+                    android:layout_gravity="left"
+                    android:gravity="center"
+                    android:textColor="@color/backroundalack"
+                    android:textSize="13sp"
+                    android:drawableLeft="@drawable/ic_secondery_location"
+                    />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <TableRow
+                        android:layout_marginRight="60dp"
+                        android:layout_weight="2">
+                        <TextView
+                            android:layout_weight="1"
+                            android:id="@+id/custom_list_bedroom_id"
+                            android:padding="3dp"
+                            android:drawablePadding="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="6"
+                            android:textStyle="bold"
+                            android:textColor="@color/backroundalack"
+                            android:textSize="12sp"
+                            android:drawableLeft="@drawable/ic_bedrooms"
+                            />
+
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:drawablePadding="10dp"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/custom_list_bathroom_id"
+                            android:padding="3dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textStyle="bold"
+                            android:textColor="@color/backroundalack"
+                            android:textSize="12sp"
+                            android:drawableLeft="@drawable/ic_bathrooms"
+                            />
+
+
+                    </TableRow>
+                    <TableRow
+                        android:layout_marginRight="60dp"
+                        android:layout_weight="2">
+                        <TextView
+                            android:layout_weight="1"
+                            android:drawablePadding="10dp"
+                            android:id="@+id/custom_list_area_id"
+                            android:padding="3dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sqft"
+                            android:textStyle="bold"
+                            android:textColor="@color/backroundalack"
+                            android:textSize="12sp"
+                            android:drawableLeft="@drawable/ic_area"
+                            />
+
+
+                        <TextView
+                            android:layout_weight="1"
+                            android:drawablePadding="10dp"
+                            android:layout_marginLeft="50dp"
+                            android:id="@+id/custom_list_garage_id"
+                            android:padding="3dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="3"
+                            android:textStyle="bold"
+                            android:textColor="@color/backroundalack"
+                            android:textSize="12sp"
+                            android:drawableLeft="@drawable/ic_garages"
+                            />
+                    </TableRow>
+
+                </TableLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="33dp"
+                    android:orientation="horizontal"
+                    android:padding="1dp">
+                    <android.support.v7.widget.AppCompatButton
+                        android:id="@+id/custom_list_price_id"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="230,000"
+                        android:textColor="@color/backroundalack"
+                        android:textSize="12sp"
+                        android:drawableLeft="@drawable/ic_s_dollar"
+                        android:background="@null"
+                        style="@style/Widget.AppCompat.Button.Borderless"
+                        />
+                    <ImageView
+                        android:id="@+id/custom_data"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_transfar"
+                        />
+                    <ImageView
+                        android:id="@+id/custom_share"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_share"
+                        />
+                    <ImageView
+                        android:id="@+id/custom_like"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_love"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="2dp"
+           android:background="@color/secondary_text"
+           android:layout_marginRight="10dp"
+           android:layout_marginLeft="10dp"/>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:layout_weight="2"
+                >
+
+                <TextView
+                    android:textSize="13sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mohamed Ali"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_person_add_pro"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="3dp"/>
+                <TextView
+                    android:textSize="13sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2 months ago"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_calender"
+                    android:gravity="center_vertical"
+                    android:drawablePadding="3dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

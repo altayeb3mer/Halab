@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="halab2018.halab.Splash_staring"
+    android:background="@drawable/starting_background"
+    style="@style/full_screen">
+
+</RelativeLayout>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fcfcfc"
+    >
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/bar_lay"
+        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:background="#440400"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        >
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            app:layout_scrollFlags="exitUntilCollapsed|scroll"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginStart="10dp"
+            app:title="@string/login_actionbar_title"
+            app:expandedTitleMarginEnd="20dp"
+            android:background="@drawable/main_activity_background1">
+
+            <android.support.v7.widget.Toolbar
+                android:title="@string/login_actionbar_title"
+                android:id="@+id/login_toolbar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                />
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            tools:context=".Login"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+        <!-- android:focusable="true"
+    android:focusableInTouchMode="true"-->
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<LinearLayout
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:text="@string/LoginAc_welcome_to"
+        android:textColor="@color/primary_text"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="@string/LoginAc_halab_real_estate"
+        android:textColor="@color/colorPrimary"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:text="@string/LoginAc_the_best_place_to_find_the_house_you_want"
+        android:textColor="@color/secondary_text"
+        />
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/username_edt_layout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp">
+        <requestFocus/>
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_username_edt"
+            android:inputType="text"
+            android:textColorHint="@color/colorAccent"
+            android:textColorHighlight="@color/colorPrimary"
+            android:hint="@string/LoginAc_username"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/ic_login"
+            android:drawablePadding="5dp"
+            android:textColor="@color/back"
+            >
+            <!--
+            <requestFocus/>
+            -->
+
+        </android.support.v7.widget.AppCompatEditText>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/password_edt_layout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="5dp">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/login_password_edt"
+            android:inputType="textPassword"
+            android:hint="@string/LoginAc_password"
+            android:textSize="15sp"
+            android:textColor="@color/back"
+            android:textColorHint="@color/colorAccent"
+            android:drawableLeft="@drawable/ic_password"
+            android:drawablePadding="5dp"
+            >
+            <!--
+            <requestFocus/>
+            -->
+
+        </android.support.v7.widget.AppCompatEditText>
+    </android.support.design.widget.TextInputLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center">
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/r_ckeckbox"
+                android:text="@string/LoginAc_remember_me"
+                android:textColor="@color/hint_text_color"
+                android:textSize="13dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/LoginAc_forget_password"
+            android:textColor="@color/hint_text_color"
+            android:textSize="13dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+
+    <android.support.v7.widget.AppCompatButton
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/shape_button_style"
+        android:layout_below="@+id/registerAc_login_btn"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/login_login_btn"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/LoginAc_login_to_halab_real_estate"
+        android:gravity="center"
+        android:textSize="14dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        style="@style/Buttom"
+      />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/LoginAc_new_to_halab_real_estate"
+            android:textColor="@color/hint_text_color"
+            android:textSize="15dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:text="@string/LoginAc_sign_up"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:layout_marginTop="10dp"
+            android:gravity="left"
+            android:textStyle="bold"
+            android:id="@+id/login_sign_up_txt"
+            />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</android.support.design.widget.CoordinatorLayout>

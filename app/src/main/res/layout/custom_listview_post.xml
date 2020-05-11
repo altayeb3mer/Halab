@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    >
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/custom_list_post_img_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                    <TableRow>
+                        <TextView
+                            android:id="@+id/price_list"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/pro_details_price"
+                            android:textStyle="bold"
+                            android:textColor="@color/hint_text_color"
+                            android:textSize="14sp"
+                            android:padding="3dp"
+                            android:layout_alignParentTop="true" />
+                        <TextView
+                            android:id="@+id/custom_list_post_price_id"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/qatar"
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="13sp"
+                            android:padding="5dp"
+                            android:gravity="center_vertical"
+                            android:layout_gravity="end"
+                            android:layout_above="@+id/custom_list_post_title_id"
+                            android:layout_toLeftOf="@+id/price_list"
+                            />
+                        </TableRow>
+                    </TableLayout>
+                    </LinearLayout>
+
+                <TextView
+                    android:id="@+id/custom_list_post_title_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/qatar"
+                    android:textStyle="bold"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
+                    android:layout_below="@+id/price_list"
+                    android:padding="3dp"
+                    android:layout_centerVertical="true"/>
+
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">حلب العقارية في قطر</string>
+    <string name="cars_toolbar_title">سيارات</string>
+    <string name="conditioning_toolbar_title">تكييف وتبريد</string>
+    <string name="contactAc_contact_us">تواصل معنا</string>
+    <string name="contactUs_our_location">موقعنا</string>
+    <string name="contact_detailsAc_toolbar_title">بيانات الاتصال</string>
+    <string name="contact_us_message">الرسالة</string>
+    <string name="contactus_submit">تقديم</string>
+    <string name="main_contact">التواصل</string>
+    <string name="main_furniture">اثاثات</string>
+    <string name="main_jobs">وظائف</string>
+    <string name="main_jobscars">سيارات</string>
+    <string name="main_properties">العقارات</string>
+    <string name="main_recently_properties">العقارات الاخيرة</string>
+    <string name="main_submit_properties">اضافة عقار</string>
+    <string name="more_contact_details">بيانات اتصال اخرى</string>
+    <string name="progressDialog_txt">جاري المعالجة</string>
+    <string name="properties">عقارات</string>
+    <string name="properties_details">بيانات العقار</string>
+    <string name="qatar">قطر</string>
+    <string name="reg_already_have_an_account">لديك حساب مسبقاً ؟</string>
+    <string name="reg_register_now_btn">سجل الآن</string>
+    <string name="reg_sign_in">تسجيل!</string>
+    <string name="reg_the_confirm_password">تأكيد كلمة السر</string>
+    <string name="reg_your_last_name">الهاتف</string>
+    <string name="reg_your_password">كلمة السر</string>
+    <string name="reg_yout_first_name">الاسم</string>
+    <string name="register">التسجيل</string>
+    <string name="register_actionbar_title">التسجيل</string>
+    <string name="search_properties">البحث عن عقار</string>
+    <string name="tab_all">الكل</string>
+    <string name="tab_my_added">اضافاتي</string>
+    <string name="toolbar_title_contact_us">تواصل معنا</string>
+    <string name="LoginAc_email">البريد الالكتروني</string>
+    <string name="LoginAc_forget_password">نسيت كلمة السر؟</string>
+    <string name="LoginAc_halab_real_estate">حــلـب العقـاريـة</string>
+    <string name="LoginAc_login_to_halab_real_estate">تجيل الدخول لحلب العقارية</string>
+    <string name="LoginAc_new_to_halab_real_estate">جديد في حلب العقارية</string>
+    <string name="LoginAc_password">كلمة السر</string>
+    <string name="LoginAc_remember_me">ذكرني</string>
+    <string name="LoginAc_sign_up">التسجيل ؟</string>
+    <string name="LoginAc_the_best_place_to_find_the_house_you_want">المكان المناسب لتجد منزلك</string>
+    <string name="LoginAc_welcome_to">مرحبا بك في</string>
+    <string name="about_buy_text">حلب العقارية حلب العقارية حلب العقارية حلب العقارية حلب العقارية حلب العقارية حلب العقارية</string>
+    <string name="about_halab_text">حلب العقارية حلب العقارية حلب العقارية حلب العقارية حلب العقارية حلب العقارية حلب العقارية</string>
+    <string name="al_doha_qatar">الدوحة قطر</string>
+    <string name="PropertiesAc_Properties">عقارات</string>
+    <string name="main_conditioning">تبريد وتكييف</string>
+    <string name="main_commercial_services">خدمات تجارية</string>
+    <string name="custom_for_sale">للبيع</string>
+    <string name="pro_details_amenities">وسائل الراحة</string>
+    <string name="pro_details_for_sale">للبيع</string>
+    <string name="pro_details_general_information">معلومات عامة</string>
+    <string name="pro_details_location">الموقع</string>
+    <string name="pro_details_price">السعر بالريال القطري</string>
+    <string name="pro_details_type">النوع</string>
+    <string name="c_services_toolbar_title">خدمات تجارية</string>
+    <string name="custom_list_bathrooms">حمام</string>
+    <string name="custom_list_bedrooms">الفراش</string>
+    <string name="custom_list_garages">المرآب</string>
+    <string name="exit">خروج</string>
+    <string name="furniture_toolbar_title">أثاثات</string>
+    <string name="jobs_toolbar_title">وظائف</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="login_actionbar_title">تسجيل دخول</string>
+    <string name="main_about">من نحن</string>
+    <string name="main_agent">وكيل</string>
+    <string name="pro_det_air_condition">تكييف</string>
+    <string name="pro_det_balcony">شرفة</string>
+    <string name="pro_det_internet">انترنت</string>
+    <string name="cancel">رجوع</string>
+    <string name="ok">موافق</string>
+    <string name="new_post">منشور جديد</string>
+    <string name="property_description_and_price">مواصفات وسعر العقار</string>
+    <string name="select_section">اختر القسم</string>
+    <string name="description_and_title">الوصف والعنوان</string>
+    <string name="dialog_msg_chose_another_img">هل تريد اختيار صورة اخرى ؟</string>
+    <string name="dialog_msg_exit">سوف يتم اغلاق التطبيق؟</string>
+    <string name="buy_property">شراء عقار</string>
+    <string name="setting">الضبط</string>
+    <string name="services">خدماتنا</string>
+    <string name="submit_post">اضافة المنشور</string>
+
+
+    //properties section spiner
+    <string-array name="section">
+        <item>اختر..</item>
+        <item>عقار</item>
+        <item>سيارة</item>
+        <item>اثاث</item>
+        <item>تبريد وتكييف</item>
+        <item>خدمات تجارية</item>
+        <item>وظيفة</item>
+        <item>الكترونيات</item>
+        <item>التنظيفات</item>
+    </string-array>
+    <string name="property_title">عنوان المنشور</string>
+    <string name="property_description">وصف المنشور</string>
+    <string name="post_media">صور المنشور</string>
+    <string name="post_details_tooltitle">تفاصيل المنشور</string>
+    <string name="click_to_select_image">اضغط لاختيار صورة اخري</string>
+    <string name="contact_information">معلومات التواصل</string>
+    <string name="name">الاسم</string>
+    <string name="new_post_email">البريد الالكتروني</string>
+    <string name="new_post_phone">رقم الهاتف</string>
+    <string name="submit_properties">اضافة العقار</string>
+
+
+    //properties bulding age spiner
+    <string-array name="sub_pro_building_age">
+        <item>...</item>
+        <item>0_1 سنة</item>
+        <item>0_5 سنة</item>
+        <item>0_10 سنة</item>
+        <item>0_15 سنة</item>
+        <item>0_20 سنة</item>
+        <item>0_50 سنة</item>
+        <item>50+ سنة</item>
+    </string-array>
+    <string name="sub_address">العنوان</string>
+    <string name="sub_air_conditioning">تكييف</string>
+    <string name="sub_alarm">إنذار</string>
+    <string name="sub_area_sqft">المساحة بالمتر المربع</string>
+    <string name="sub_bathrooms_optional">الحمامات - اختياري</string>
+    <string name="sub_bedrooms_optional">غرف النوم - اختياري</string>
+    <string name="sub_central_heating">تدفئة مركزية</string>
+    <string name="sub_building_age_optional">عمر المبنى - اختياري</string>
+    <string name="sub_city">المدينة</string>
+    <string name="sub_contact_information">معلومات الاتصال</string>
+    <string name="sub_country">البلد</string>
+    <string name="sub_extra_information">معلومات اضافية</string>
+    <string name="sub_google_maps_latitude">خرائط جوجل خط العرض</string>
+    <string name="sub_google_maps_longitude">خرائط جوجل خط الطول</string>
+    <string name="sub_gym">نادي رياضي</string>
+    <string name="sub_laundry_room">غرفة الغسيل</string>
+    <string name="sub_microwave">الميكروويف</string>
+    <string name="sub_price_usd">السعر بالريال القطري</string>
+    <string name="sub_property_description">وصف العقار</string>
+    <string name="sub_property_features">مميزات العقار</string>
+    <string name="sub_property_location">موقع العقار</string>
+    <string name="sub_property_media">صور العقار</string>
+    <string name="sub_property_title">عنوان العقار</string>
+    <string name="sub_refrigerator">ثلاجة</string>
+    <string name="sub_rooms">عدد الغرف</string>
+    <string name="sub_status">الحالة</string>
+    <string name="sub_state">الولاية</string>
+    <string name="sub_swimming_pool">حمام السباحة</string>
+    <string name="sub_tv_cable_and_wifi">وصلة التفاز والWiFi</string>
+    <string name="sub_type">النوع</string>
+    <string name="sub_username">اسم المستخدم</string>
+    <string name="sub_window_covering">نافذة تغطية</string>
+    <string name="real_estate_kit">مجموعة عقارات</string>
+    <string name="pro_det_general_info_text">
+        pro_det_general_info_text
+    </string>
+    <string name="our">ماهي</string>
+    <string name="about_rent_property">استئجار عقار</string>
+    <string name="balcony_2">2 شرفة</string>
+    <string name="baths_5">5 حمام</string>
+    <string name="bedding">الفراش</string>
+    <string name="beds_6">6 غرف نوم</string>
+    <string name="cable_tv">وصلات التلفاز</string>
+    <string name="_750_sq_ft">750 متر مربع</string>
+    <string name="internet">الانترنت</string>
+    <string name="kitchen_2">2 مطبخ</string>
+    <string name="post_title">عنوان المنشور</string>
+    <string name="post_description">وصف المنشور</string>
+    <string name="add_pro_builder_add_success">تمت اضافة المنشور بنجاح</string>
+    <string name="add_pro_builder_unknown_error">حدث خطأ غير متوقع حاول مرة اخرى!</string>
+    <string name="login_error_builder_ok_btn">موافق</string>
+    <string name="login_error_network_error">خطأ بالاتصال</string>
+    <string name="login_error_no_internet_access">لايوجد اتصال بالانترنت</string>
+    <string name="login_error_server_not_found">تعذر الوصول للخادم</string>
+    <string name="reg_error_builder_title">خطأ</string>
+    <string name="sale_empty_dept">هذا القسم فارغ حتى الان</string>
+    <string name="some_field_is_empty">احد الحقول فارغة</string>
+    <string name="reg_password_doesnt_match">كلمة السر غير متطابقة!</string>
+    <string name="LoginAc_username">اسم المستخدم</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="login_error_builder_message">اسم المستخدم او كلمة السر غير صحيحة!</string>
+    <string name="login_error_builder_title">خطأ</string>
+    <string name="registeration_done">تم التسجيل بنجاح..</string>
+    <string name="exist_user">اسم المستخدم موجود حاول باسم اخر!</string>
+    <string name="plz_login_first">يرجى تسجيل الدخول والمحاولة مرة اخرى!</string>
+    <string name="Update_my_post">تعديل المنشور</string>
+    <string name="cleaning">التنظيفات</string>
+    <string name="electronic">الكترونيات</string>
+    <string name="logout">تسجيل خروج</string>
+    <string name="logout_msg">تم مسح سجل الدخول</string>
+    <string name="premium_tab">المميزة</string>
+    <string name="send_mail_extras">حلب للعقارات في قطر</string>
+    <string name="send_intent_title">ارسال بريد</string>
+    <string name="send_mail_error">حدث خطأ، حاول مجددا ..</string>
+    <string name="powered_by">تم التطوير بواسطة</string>
+    <string name="isn_technology">ISN تكنولوجي</string>
+    <string name="logout_msg_builder">سوف يتم مسح بيانات الدخول ؟</string>
+    <string name="login_seccess">عملية تسجيل دخول ناجحة</string>
+    <string name="dail_no">اتصال بالرقم </string>
+    <string name="send_failed">حدث خطأ اثناء ارسال رسالتك حاول مره اخرى!</string>
+    <string name="send_seccess">تم ارسال رسالتك</string>
+    <string name="delete_msg">سوف يتم مسح المنشور! هل تريد المتابعة ؟</string>
+    <string name="delete_done">تم مسح المنشور</string>
+    <string name="delete_faild">لم يتم مسح المنشور! حاول مرة اخرى</string>
+    <string name="login_cond">قم بالتسجيل للحصول على ميزات اكثر</string>
+    <string name="snackbar_txt">قم بتسجيل الدخول لرؤية المنشورات التي اضفتها</string>
+    <string name="no_image_found_for_this_post">لايحتوي المنشور على اي صور</string>
+    <string name="state_or_region">الولاية او المنطقة</string>
+    <string name="post_d_state_or_region">الولاية او المنطقة</string>
+    <string name="select_img">اضغط لاختيار صورة</string>
+    <string name="update_success">تم تحديث منشورك</string>
+    <string name="search">بحث</string>
+    <string name="no_prmium">لاتوجد عناصر مميزة</string>
+
+
+</resources>

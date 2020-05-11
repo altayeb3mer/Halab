@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkwhite"
+    tools:context="halab2018.halab.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/new_post_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="@string/new_post"
+        app:titleTextColor="@color/white"
+        android:layoutDirection="ltr"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/description_and_title"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/select_section"
+                        android:textSize="15sp"
+                        android:textColor="@color/back"
+                        android:textStyle="bold"
+                        />
+
+
+                    <Spinner
+                        android:id="@+id/new_post_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/shape_rounded_regtangle_black"
+                        />
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/sub_pro_title_edt_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_rounded_regtangle_black">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/new_post_title_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/post_title"
+                            android:inputType="text"
+                            android:padding="5dp"
+                            android:textColor="@color/back"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="15sp">
+
+                        </android.support.v7.widget.AppCompatEditText>
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    //
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/sub_pro_location_edt_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_rounded_regtangle_black">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/new_post_location_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/state_or_region"
+                            android:inputType="text"
+                            android:padding="5dp"
+                            android:textColor="@color/back"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="15sp">
+
+                        </android.support.v7.widget.AppCompatEditText>
+                    </android.support.design.widget.TextInputLayout>
+                    //
+
+
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/sub_pro_desciption_edt_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_rounded_regtangle_black">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/new_post_desciption_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@android:color/transparent"
+                            android:gravity="top"
+                            android:hint="@string/post_description"
+                            android:inputType="text|textMultiLine"
+                            android:padding="5dp"
+                            android:textColor="@color/back"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="15sp">
+
+                        </android.support.v7.widget.AppCompatEditText>
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/sub_pro_price_edt_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_rounded_regtangle_black">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/new_post_price_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/sub_price_usd"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textColor="@color/back"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="15sp">
+
+                        </android.support.v7.widget.AppCompatEditText>
+                    </android.support.design.widget.TextInputLayout>
+
+
+
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/post_media"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/shape_rounded_regtangle_black"
+                        android:focusableInTouchMode="true"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp">
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/new_post_img_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:visibility="gone"/>
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/new_post_img_view2"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:visibility="gone"/>
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/new_post_img_view3"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:visibility="gone"/>
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/new_post_img_view4"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:visibility="gone"/>
+                        <ImageView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/new_post_img_view5"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:visibility="gone"/>
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/new_post_select_img_btn"
+                            style="@style/Buttom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/shape_button_style"
+                            android:drawableLeft="@drawable/shape_add_image"
+                            android:drawablePadding="5sp"
+                            android:gravity="center"
+                            android:text="@string/select_img"
+                            android:textSize="12sp" />
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/new_post_select_img_btn2"
+                            style="@style/Buttom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/shape_button_style"
+                            android:drawableLeft="@drawable/shape_add_image"
+                            android:drawablePadding="5sp"
+                            android:gravity="center"
+                            android:text="@string/click_to_select_image"
+                            android:textSize="12sp"
+                            android:visibility="gone"/>
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/new_post_select_img_btn3"
+                            style="@style/Buttom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/shape_button_style"
+                            android:drawableLeft="@drawable/shape_add_image"
+                            android:drawablePadding="5sp"
+                            android:gravity="center"
+                            android:text="@string/click_to_select_image"
+                            android:textSize="12sp"
+                            android:visibility="gone"/>
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/new_post_select_img_btn4"
+                            style="@style/Buttom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/shape_button_style"
+                            android:drawableLeft="@drawable/shape_add_image"
+                            android:drawablePadding="5sp"
+                            android:gravity="center"
+                            android:text="@string/click_to_select_image"
+                            android:textSize="12sp"
+                            android:visibility="gone"/>
+                        <android.support.v7.widget.AppCompatButton
+                            android:id="@+id/new_post_select_img_btn5"
+                            style="@style/Buttom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/shape_button_style"
+                            android:drawableLeft="@drawable/shape_add_image"
+                            android:drawablePadding="5sp"
+                            android:gravity="center"
+                            android:text="@string/click_to_select_image"
+                            android:textSize="12sp"
+                            android:visibility="gone"/>
+
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/contact_information"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/sub_pro_name_edt_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_rounded_regtangle_black">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/new_post_name_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/name"
+                            android:inputType="text"
+                            android:padding="5dp"
+                            android:textColor="@color/back"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="15sp">
+
+                        </android.support.v7.widget.AppCompatEditText>
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/sub_pro_email_edt_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_rounded_regtangle_black">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/new_post_email_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/new_post_email"
+                            android:inputType="text"
+                            android:padding="5dp"
+                            android:textColor="@color/back"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="15sp"
+                            >
+                        </android.support.v7.widget.AppCompatEditText>
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/sub_pro_phone_edt_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_rounded_regtangle_black">
+
+                        <android.support.v7.widget.AppCompatEditText
+                            android:id="@+id/new_post_phone_edt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/new_post_phone"
+                            android:inputType="number"
+                            android:padding="5dp"
+                            android:textColor="@color/back"
+                            android:textColorHighlight="@color/colorPrimary"
+                            android:textColorHint="@color/colorAccent"
+                            android:textSize="15sp">
+
+                        </android.support.v7.widget.AppCompatEditText>
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/new_post_btn"
+                style="@style/Buttom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_button_style"
+                android:gravity="center"
+                android:text="@string/submit_post"
+                android:textSize="14sp" />
+            //////////
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

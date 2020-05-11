@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+    <color name="colorPrimary">#0C5C91</color>
+    <color name="colorPrimaryDark">#094973</color>
+    <color name="colorAccent">#ea80fc</color>
+    -->
+
+    <color name="white_opecity">#b0ffffff</color>
+    <color name="backroundalack">#121B22</color>
+    <color name="iconcolor">#2d0101</color>
+
+    <color name="back">#000000</color>
+    <!--ICON COLOR-->
+    <color name="white">#ffffff</color>
+
+    <color name="darkwhite">#f7f4f4</color>
+
+    <color name="text_color">#000326</color>
+    <color name="hint_text_color">#c03b3a3a</color>
+
+    <!--SHAPE COLOR-->
+    <color name="blue">#6892d1</color>
+    <color name="d_blue">#272661</color>
+    <color name="orange">#e7e014</color>
+    <color name="d_green">#50ff8b</color>
+    <color name="d_red">#f56567</color>
+    <color name="d_green2">#05d157</color>
+
+
+
+        <color name="colorPrimary">#2196F3</color>
+        <color name="colorPrimaryDark">#1976D2</color>
+        <color name="primary_light">#BBDEFB</color>
+        <color name="colorAccent">#03A9F4</color>
+        <color name="primary_text">#212121</color>
+        <color name="secondary_text">#757575</color>
+        <color name="icons">#FFFFFF</color>
+        <color name="divider">#BDBDBD</color>
+
+
+    ///////////
+
+    <color name="drawable_icons">#bde2d0d0</color>
+    <color name="logodarkblue">#580451</color>
+    <color name="green">#00ff51</color>
+    <color name="titlenoselect">#a5ffffff</color>
+    <color name="splash_background">#00bbff</color>
+    <color name="colorPrimarytrans">#00bbff</color>
+
+
+
+</resources>

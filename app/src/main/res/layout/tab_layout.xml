@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Tab_Layout"
+    android:layoutDirection="ltr">
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/main_toolbar"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:layoutDirection="ltr"
+        app:navigationIcon="@drawable/ic_toolbar_on_back_press"
+        app:title="@string/main_properties">
+    </android.support.v7.widget.Toolbar>
+    <EditText
+        android:id="@+id/search_main"
+        android:hint="Search"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:layoutDirection="ltr"
+        android:drawableLeft="@drawable/ic_toolbar_on_back_press"
+        android:drawablePadding="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        />
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_tablayout"
+        android:background="?attr/colorPrimary"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
+        app:tabTextColor="@color/titlenoselect"
+        app:tabSelectedTextColor="@color/white"
+        android:layoutDirection="ltr"
+        tools:targetApi="jelly_bean_mr1"
+        android:layout_marginTop="?attr/actionBarSize"/>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/main_viewpager"
+        android:layout_below="@+id/main_tablayout" />
+
+</RelativeLayout>
