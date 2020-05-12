@@ -45,10 +45,7 @@ public class ContactDetails extends AppCompatActivity {
         map_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_VIEW,Uri.parse("geo:25.288851,51.536203"));
-                i.setClassName("com.google.android.apps.maps",
-                        "com.google.android.maps.MapsActivity");
-                startActivity(i);
+                ShowMaps("25.288851","51.536203",getResources().getString(R.string.app_name));
             }
         });
         send_email=(TextView)findViewById(R.id.email_intent);
@@ -75,6 +72,13 @@ public class ContactDetails extends AppCompatActivity {
         });
 
 
+    }
+
+
+    private void ShowMaps(String Latitude, String Longtude, String s_title) {
+        String urlAddress = "http://maps.google.com/maps?q=" + Latitude + "," + Longtude + "(" + s_title + ")&iwloc=A&hl=es";
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlAddress));
+        startActivity(intent);
     }
 
     protected void buildAlertMessageDail() {

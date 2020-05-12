@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Halab Real Estate Qatar</string>
+    <string name="app_name">Qatar Real Estate</string>
     <string name="search_properties">Search properties</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
@@ -219,6 +219,7 @@
         <item>JOB</item>
         <item>ELECTRONIC</item>
         <item>CLEANING</item>
+        <item>OTHER</item>
     </string-array>
 
     //properties section spinner
@@ -233,6 +234,7 @@
         <item>COMMERCIAL SERVICE</item>
         <item>ELECTRONIC</item>
         <item>CLEANING</item>
+        <item>OTHER</item>
     </string-array>
 
     <string name="post_title">Post title</string>
@@ -289,6 +291,7 @@
     <string name="update_success">Your post has been updated</string>
     <string name="search">Search</string>
     <string name="no_prmium">No premium items</string>
+    <string name="other_dept">Other</string>
 
 
 </resources>

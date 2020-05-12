@@ -186,8 +186,6 @@ public class Premium extends Fragment{
                                 String image = object.getString("img1");
 
 
-
-
                                 if (message.equals("yes")) {
                                     post_id.add(i,id.toString().trim());
                                     post_title.add(i,title.toString().trim());

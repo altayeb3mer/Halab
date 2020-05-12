@@ -147,6 +147,19 @@ public class Car_tab_layout extends AppCompatActivity {
                 tabLayout.setupWithViewPager(viewPager);
                 break;
             }
+            case "Other":{
+                section=sec_db[9];
+                toolbar.setTitle(getResources().getString(R.string.other_dept));
+                setToolbar();
+                adapter.addFragment(new Premium(),getResources().getString(R.string.premium_tab));
+                adapter.addFragment(new Get_posts(),getResources().getString(R.string.tab_all));
+                if(SharePref.Is_Logged_in(getApplicationContext())){
+                    adapter.addFragment(new My_added(),getResources().getString(R.string.tab_my_added));
+                }
+                viewPager.setAdapter(adapter);
+                tabLayout.setupWithViewPager(viewPager);
+                break;
+            }
 
 
 

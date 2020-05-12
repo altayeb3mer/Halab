@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
 
-    CardView properties,jobs,cars,furniture,c_services,conditioning,electronic,cleaning;
+    CardView properties,jobs,cars,furniture,c_services,conditioning,electronic,cleaning,card_other;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+        card_other = findViewById(R.id.card_other);
+        card_other.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Car_tab_layout.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("activityId", "Other");
+                i.putExtras(bundle);
+                startActivity(i);
+            }
+        });
         properties=(CardView)findViewById(R.id.activity_main_properties_cardview);
         properties.setOnClickListener(new View.OnClickListener() {
             @Override

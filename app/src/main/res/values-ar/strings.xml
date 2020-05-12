@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">حلب العقارية في قطر</string>
+    <string name="app_name">قطر للعقارات</string>
     <string name="cars_toolbar_title">سيارات</string>
     <string name="conditioning_toolbar_title">تكييف وتبريد</string>
     <string name="contactAc_contact_us">تواصل معنا</string>
@@ -95,6 +95,7 @@
         <item>وظيفة</item>
         <item>الكترونيات</item>
         <item>التنظيفات</item>
+        <item>اخرى</item>
     </string-array>
     <string name="property_title">عنوان المنشور</string>
     <string name="property_description">وصف المنشور</string>
@@ -212,6 +213,7 @@
     <string name="update_success">تم تحديث منشورك</string>
     <string name="search">بحث</string>
     <string name="no_prmium">لاتوجد عناصر مميزة</string>
+    <string name="other_dept">اخرى</string>
 
 
 </resources>

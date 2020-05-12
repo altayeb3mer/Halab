@@ -5,6 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#fcfcfc"
+    android:focusableInTouchMode="true"
+    android:focusable="true"
     >
 
 
@@ -136,7 +138,7 @@
                                 android:layout_height="wrap_content"
                                 android:id="@+id/register_edt_layout"
                                 android:background="@drawable/shape_rounded_regtangle_black">
-                                <requestFocus/>
+
                                 <androidx.appcompat.widget.AppCompatEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -165,7 +167,6 @@
                                 android:id="@+id/reg_lastname_edt_layout"
                                 android:background="@drawable/shape_rounded_regtangle_black"
                                 >
-                                <requestFocus/>
                                 <androidx.appcompat.widget.AppCompatEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
