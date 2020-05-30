@@ -34,7 +34,13 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import halab2018.halab.Utils.RetroApi;
 import me.relex.circleindicator.CircleIndicator;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class Post_details extends AppCompatActivity {
     Toolbar toolbar;
@@ -97,8 +103,19 @@ public class Post_details extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         post_id = bundle.getString("post_id");
 
-        getPostDetails();
-
+//        getPostDetails();
+        if (URL.isNetworkConnected(getApplicationContext())) {
+            if (!URL.isInternetAvailable()) {
+                //getPremium
+                getPostDetRetro();
+            } else {
+                Toast.makeText(getApplicationContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         post_email.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,29 +148,7 @@ public class Post_details extends AppCompatActivity {
         });
 
 
-    handler=new Handler();
-    runnable=new Runnable() {
-        @Override
-        public void run() {
-            int i=viewPager.getCurrentItem();
 
-            if(i==adapter.urls.size()-1){
-                i=0;
-                viewPager.setCurrentItem(i,true);
-            }else{
-                i++;
-                viewPager.setCurrentItem(i,true);
-            }
-
-        }
-    };
-        timer=new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(runnable);
-            }
-        },4000,4000);
         /////////
     }
 
@@ -170,7 +165,145 @@ public class Post_details extends AppCompatActivity {
         }
     }
 
+    private void slideImgs(){
+        handler=new Handler();
+        runnable=new Runnable() {
+            @Override
+            public void run() {
+                int i=viewPager.getCurrentItem();
 
+                if(i==adapter.urls.size()-1){
+                    i=0;
+                    viewPager.setCurrentItem(i,true);
+                }else{
+                    i++;
+                    viewPager.setCurrentItem(i,true);
+                }
+
+            }
+        };
+        timer=new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(runnable);
+            }
+        },4000,4000);
+    }
+
+    private void getPostDetRetro() {
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new Interceptor() {
+//                    @Override
+//                    public okhttp3.Response intercept(Chain chain) throws IOException {
+//                        okhttp3.Request.Builder ongoing = chain.request().newBuilder();
+//                        ongoing.addHeader("Accept", "application/json;");
+//                        ongoing.addHeader("Content-Type", "application/x-www-form-urlencoded");
+//
+//                        ongoing.addHeader("Authorization", SharedPrefManager.getInstance(getApplicationContext()).GetToken());
+//
+//                        return chain.proceed(ongoing.build());
+//                    }
+//                })
+//                .readTimeout(60, TimeUnit.SECONDS)
+//                .connectTimeout(60, TimeUnit.SECONDS)
+//                .build();
+        viewPager=(ViewPager)findViewById(R.id.postdetails_viewpager);
+        showDialog();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL.ROOT_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetroApi.getPostDetails service = retrofit.create(RetroApi.getPostDetails.class);
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json;charset=UTF-8");
+//                Call<TransResult> call = service.getStringScalar(new SendToCard(cardModel.getCard_no(), s_card_no, "000", cardModel.getMonth() + cardModel.getYear(), s_money, uuid, "moneyTransfer"));
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(c), hashMap);
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(""),hashMap);
+
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(my_card_no, s_phone,s_sim_type, s_encryptedvalu, my_card_exp_date, s_amount, uuid, "topUp"), hashMap);
+        Call<String> call = service.getStringScalar(post_id);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response.body());
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    String code = jsonObject.getString("code");
+                    if (code.equals("yes")) {
+                        s_post_price = jsonObject.getString("price");
+                        post_price.setText(s_post_price);
+                        s_post_g_info = jsonObject.getString("description");
+                        post_g_info.setText(s_post_g_info);
+
+                        s_post_location = jsonObject.getString("area");
+                        post_location.setText(s_post_location);
+
+                        s_post_name = jsonObject.getString("name");
+                        post_name.setText(s_post_name);
+                        s_post_email = jsonObject.getString("email");
+                        post_email.setText(s_post_email);
+                        s_post_phone = jsonObject.getString("phone");
+                        post_phone.setText(s_post_phone);
+                        img1 = jsonObject.getString("img1");
+                        img2 = jsonObject.getString("img2");
+                        img3 = jsonObject.getString("img3");
+                        img4 = jsonObject.getString("img4");
+                        img5 = jsonObject.getString("img5");
+
+
+
+
+                        if(!img1.equals("")){
+                            list_images.add(img1);
+                        }
+                        if(!img2.equals("")){
+                            list_images.add(img2);
+                        }
+                        if(!img3.equals("")){
+                            list_images.add(img3);
+                        }
+                        if(!img4.equals("")){
+                            list_images.add(img4);
+                        }
+                        if(!img5.equals("")){
+                            list_images.add(img5);
+                        }
+                        adapter=new SlideShow_adapter(getApplicationContext(),list_images);
+                        viewPager.setAdapter(adapter);
+                        indicator.setViewPager(viewPager);
+                        if(list_images.isEmpty()){
+                            TextView no_img=(TextView) findViewById(R.id.post_has_no_img);
+                            no_img.setVisibility(View.VISIBLE);
+                        }else{
+                            slideImgs();
+                        }
+                        hideDialog();
+                    } else {
+                        Toast.makeText(Post_details.this, "Unknown error", Toast.LENGTH_SHORT).show();
+                        hideDialog();
+                        finish();
+
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable throwable) {
+                hideDialog();
+                finish();
+                Toast.makeText(getApplicationContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
     private void getPostDetails() {
         if (URL.isNetworkConnected(getApplicationContext())) {
@@ -178,7 +311,7 @@ public class Post_details extends AppCompatActivity {
                 if (ContextCompat.checkSelfPermission(Post_details.this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(Post_details.this, new String[]{Manifest.permission.INTERNET}, REQUEST_CALL);
                 } else {
-
+                    viewPager=(ViewPager)findViewById(R.id.postdetails_viewpager);
                     showDialog();
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL.GET_POST_DETAILS_URL,
                             new Response.Listener<String>() {
@@ -209,8 +342,6 @@ public class Post_details extends AppCompatActivity {
                                             img4 = jsonObject.getString("img4");
                                             img5 = jsonObject.getString("img5");
 
-
-                                            viewPager=(ViewPager)findViewById(R.id.postdetails_viewpager);
 
                                             if(!img1.equals("")){
                                                list_images.add(img1);

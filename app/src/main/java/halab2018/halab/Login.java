@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +31,13 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import halab2018.halab.Utils.RetroApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class Login extends AppCompatActivity {
     TextView sign_up_txt;
@@ -53,7 +62,23 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+//                login();
+                if (URL.isNetworkConnected(getApplicationContext())) {
+                    if (!URL.isInternetAvailable()) {
+                        s_username = username.getText().toString().trim();
+                        s_password = password.getText().toString().trim();
+
+                        if (s_username.equals("") || s_password.equals("")) {
+                            Toast.makeText(Login.this, getResources().getString(R.string.some_field_is_empty), Toast.LENGTH_SHORT).show();
+                        }else {
+                            loginRetro();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -117,6 +142,79 @@ public class Login extends AppCompatActivity {
     }
 
 
+    private void loginRetro() {
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new Interceptor() {
+//                    @Override
+//                    public okhttp3.Response intercept(Chain chain) throws IOException {
+//                        okhttp3.Request.Builder ongoing = chain.request().newBuilder();
+//                        ongoing.addHeader("Accept", "application/json;");
+//                        ongoing.addHeader("Content-Type", "application/x-www-form-urlencoded");
+//
+//                        ongoing.addHeader("Authorization", SharedPrefManager.getInstance(getApplicationContext()).GetToken());
+//
+//                        return chain.proceed(ongoing.build());
+//                    }
+//                })
+//                .readTimeout(60, TimeUnit.SECONDS)
+//                .connectTimeout(60, TimeUnit.SECONDS)
+//                .build();
+        showDialog();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL.ROOT_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetroApi.login service = retrofit.create(RetroApi.login.class);
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json;charset=UTF-8");
+//                Call<TransResult> call = service.getStringScalar(new SendToCard(cardModel.getCard_no(), s_card_no, "000", cardModel.getMonth() + cardModel.getYear(), s_money, uuid, "moneyTransfer"));
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(c), hashMap);
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(""),hashMap);
+
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(my_card_no, s_phone,s_sim_type, s_encryptedvalu, my_card_exp_date, s_amount, uuid, "topUp"), hashMap);
+        Call<String> call = service.getStringScalar(s_username,s_password,hashMap);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response.body());
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    String code = jsonObject.getString("code");
+
+                    if (code.equals("1")) {
+                        Toast.makeText(Login.this, getResources().getString(R.string.login_seccess), Toast.LENGTH_SHORT).show();
+                        String server_username = jsonObject.getString("username");
+                        String server_user_id = jsonObject.getString("user_id");
+                        SharePref.SaveUsername(server_username,server_user_id,Login.this);
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        hideDialog();
+                        finish();
+                    } else if(code.equals("0")){
+                        hideDialog();
+                        builder.setTitle(getResources().getString(R.string.login_error_builder_title));
+                        displayAlert(getResources().getString(R.string.login_error_builder_message));
+                    }
+
+
+                } catch (JSONException e) {
+                    hideDialog();
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_error_server_not_found)+e.toString(), Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable throwable) {
+                hideDialog();
+                finish();
+                Toast.makeText(getApplicationContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
     private void login() {
         if (URL.isNetworkConnected(getApplicationContext())) {

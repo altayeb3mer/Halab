@@ -1,4 +1,4 @@
-package halab2018.halab;
+package halab2018.halab.Activity;
 
 import android.Manifest;
 import android.app.ProgressDialog;
@@ -30,6 +30,20 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import halab2018.halab.ContactDetails;
+import halab2018.halab.Login;
+import halab2018.halab.MainActivity;
+import halab2018.halab.MySingleton;
+import halab2018.halab.R;
+import halab2018.halab.SharePref;
+import halab2018.halab.URL;
+import halab2018.halab.Utils.RetroApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class ContactUs extends AppCompatActivity {
     AppCompatButton more_contact_details_btn,send_msg;
@@ -92,11 +106,88 @@ public class ContactUs extends AppCompatActivity {
         send_msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              SendMsg();
+//              SendMsg();
+                if (URL.isNetworkConnected(getApplicationContext())) {
+                    if (!URL.isInternetAvailable()) {
+                        s_name =name.getText().toString().trim();
+                        s_phone = phone.getText().toString().trim();
+                        s_email = email.getText().toString().trim();
+
+                        s_message = message.getText().toString().trim();
+
+                        if (s_name.equals("") || s_phone.equals("")||s_email.equals("")||s_message.equals("")) {
+                            buildAlertMessage("input_error");
+                        }else {
+                            sendMsgRetro();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+                }
             }
 
 
         });
+    }
+
+    private void sendMsgRetro() {
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new Interceptor() {
+//                    @Override
+//                    public okhttp3.Response intercept(Chain chain) throws IOException {
+//                        okhttp3.Request.Builder ongoing = chain.request().newBuilder();
+//                        ongoing.addHeader("Accept", "application/json;");
+//                        ongoing.addHeader("Content-Type", "application/x-www-form-urlencoded");
+//
+//                        ongoing.addHeader("Authorization", SharedPrefManager.getInstance(getApplicationContext()).GetToken());
+//
+//                        return chain.proceed(ongoing.build());
+//                    }
+//                })
+//                .readTimeout(60, TimeUnit.SECONDS)
+//                .connectTimeout(60, TimeUnit.SECONDS)
+//                .build();
+        showDialog();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL.ROOT_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetroApi.contactUs service = retrofit.create(RetroApi.contactUs.class);
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json;charset=UTF-8");
+//                Call<TransResult> call = service.getStringScalar(new SendToCard(cardModel.getCard_no(), s_card_no, "000", cardModel.getMonth() + cardModel.getYear(), s_money, uuid, "moneyTransfer"));
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(c), hashMap);
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(""),hashMap);
+
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(my_card_no, s_phone,s_sim_type, s_encryptedvalu, my_card_exp_date, s_amount, uuid, "topUp"), hashMap);
+        Call<String> call = service.getStringScalar(s_name,s_phone,s_email,s_message);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response.body());
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    String code = jsonObject.getString("code");
+                    hideDialog();
+                    buildAlertMessage(code);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable throwable) {
+                hideDialog();
+                finish();
+                Toast.makeText(getApplicationContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void SendMsg(){

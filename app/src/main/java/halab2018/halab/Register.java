@@ -30,6 +30,13 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import halab2018.halab.Utils.RetroApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 public class Register extends AppCompatActivity {
     TextView sign_in_txt;
     Toolbar toolbar;
@@ -64,7 +71,25 @@ public class Register extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Registration();
+//                Registration();
+                if (URL.isNetworkConnected(getApplicationContext())) {
+                    if (!URL.isInternetAvailable()) {
+                        s_username_name = first_name.getText().toString().trim();
+                        s_email = email.getText().toString().trim();
+                        s_password = password.getText().toString().trim();
+                        s_confirm_password = confirm_password.getText().toString().trim();
+
+                        if (s_username_name.equals("") || s_password.equals("")||s_email.equals("")||s_confirm_password.equals("")) {
+                            buildAlertMessage("input_error");
+                        }else {
+                            registrationRetro();
+                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+                }
                 //// TODO: 11/11/2018 Function
             }
         });
@@ -131,6 +156,7 @@ public class Register extends AppCompatActivity {
                             confirm_password.setText("");
 
                         } else if (code.equals("reg_success")) {
+                            startActivity(new Intent(getApplicationContext(),Login.class));
                             finish();
                         }
 
@@ -141,6 +167,63 @@ public class Register extends AppCompatActivity {
         alert.show();
     }
 
+    private void registrationRetro() {
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new Interceptor() {
+//                    @Override
+//                    public okhttp3.Response intercept(Chain chain) throws IOException {
+//                        okhttp3.Request.Builder ongoing = chain.request().newBuilder();
+//                        ongoing.addHeader("Accept", "application/json;");
+//                        ongoing.addHeader("Content-Type", "application/x-www-form-urlencoded");
+//
+//                        ongoing.addHeader("Authorization", SharedPrefManager.getInstance(getApplicationContext()).GetToken());
+//
+//                        return chain.proceed(ongoing.build());
+//                    }
+//                })
+//                .readTimeout(60, TimeUnit.SECONDS)
+//                .connectTimeout(60, TimeUnit.SECONDS)
+//                .build();
+        showDialog();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL.ROOT_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetroApi.registration service = retrofit.create(RetroApi.registration.class);
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json;charset=UTF-8");
+//                Call<TransResult> call = service.getStringScalar(new SendToCard(cardModel.getCard_no(), s_card_no, "000", cardModel.getMonth() + cardModel.getYear(), s_money, uuid, "moneyTransfer"));
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(c), hashMap);
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(""),hashMap);
+
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(my_card_no, s_phone,s_sim_type, s_encryptedvalu, my_card_exp_date, s_amount, uuid, "topUp"), hashMap);
+        Call<String> call = service.getStringScalar(s_username_name,s_email,s_password);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(response.body());
+                    JSONObject jsonObject = jsonArray.getJSONObject(0);
+                    String code = jsonObject.getString("code");
+                    hideDialog();
+                    buildAlertMessage(code);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+            @Override
+            public void onFailure(Call<String> call, Throwable throwable) {
+                hideDialog();
+                finish();
+                Toast.makeText(getApplicationContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
 //Registration Function
     private void Registration() {

@@ -29,6 +29,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import halab2018.halab.Utils.RetroApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 /**
  * Created by Altayeb on 10/27/2018.
  */
@@ -90,7 +97,21 @@ public class Get_posts extends Fragment{
         post_price=new ArrayList<String>();
         post_img1=new ArrayList<String>();
 
-        getPosts();
+//        getPosts();
+        if (URL.isNetworkConnected(getContext())) {
+            if (!URL.isInternetAvailable()) {
+                //getPremium
+                getPostsRetro();
+            } else {
+                hideDialog();
+                swipeRefreshLayout.setRefreshing(false);
+                Toast.makeText(getContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            hideDialog();
+            swipeRefreshLayout.setRefreshing(false);
+            Toast.makeText(getContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+        }
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -100,7 +121,21 @@ public class Get_posts extends Fragment{
                 post_price.clear();
                 post_img1.clear();
 
-                getPosts();
+//                getPosts();
+                if (URL.isNetworkConnected(getContext())) {
+                    if (!URL.isInternetAvailable()) {
+                        //getPremium
+                        getPostsRetro();
+                    } else {
+                        hideDialog();
+                        swipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(getContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    hideDialog();
+                    swipeRefreshLayout.setRefreshing(false);
+                    Toast.makeText(getContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+                }
             }
         });
         swipeRefreshLayout.setRefreshing(true);
@@ -162,6 +197,106 @@ public class Get_posts extends Fragment{
 
             return convertView;
         }
+    }
+
+    private void getPostsRetro() {
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new Interceptor() {
+//                    @Override
+//                    public okhttp3.Response intercept(Chain chain) throws IOException {
+//                        okhttp3.Request.Builder ongoing = chain.request().newBuilder();
+//                        ongoing.addHeader("Accept", "application/json;");
+//                        ongoing.addHeader("Content-Type", "application/x-www-form-urlencoded");
+//
+//                        ongoing.addHeader("Authorization", SharedPrefManager.getInstance(getApplicationContext()).GetToken());
+//
+//                        return chain.proceed(ongoing.build());
+//                    }
+//                })
+//                .readTimeout(60, TimeUnit.SECONDS)
+//                .connectTimeout(60, TimeUnit.SECONDS)
+//                .build();
+        swipeRefreshLayout.setRefreshing(true);
+        showDialog();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL.ROOT_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetroApi.getPosts service = retrofit.create(RetroApi.getPosts.class);
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json;charset=UTF-8");
+//                Call<TransResult> call = service.getStringScalar(new SendToCard(cardModel.getCard_no(), s_card_no, "000", cardModel.getMonth() + cardModel.getYear(), s_money, uuid, "moneyTransfer"));
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(c), hashMap);
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(""),hashMap);
+
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(my_card_no, s_phone,s_sim_type, s_encryptedvalu, my_card_exp_date, s_amount, uuid, "topUp"), hashMap);
+        Call<String> call = service.getStringScalar(Car_tab_layout.section, hashMap);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                try {
+//                    JSONObject OBject = new JSONObject(response.body());
+                    JSONArray jsonArray = new JSONArray(response.body());
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            JSONObject object = (JSONObject) jsonArray.get(i);
+                            String message = object.getString("message");
+                            String id = object.getString("id");
+                            String title = object.getString("title");
+                            String price = object.getString("price");
+                            String image = object.getString("img1");
+
+
+                            if (message.equals("yes")) {
+                                post_id.add(i, id.toString().trim());
+                                post_title.add(i, title.toString().trim());
+                                post_price.add(i, price.toString().trim());
+                                post_img1.add(i, image.toString().trim());
+
+                                hideDialog();
+
+
+                            } else {
+                                hideDialog();
+                                Toast.makeText(getContext(), getResources().getString(R.string.no_prmium), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            hideDialog();
+                            Toast.makeText(getContext(), getResources().getString(R.string.no_prmium), Toast.LENGTH_SHORT).show();
+                            swipeRefreshLayout.setRefreshing(false);
+                            e.printStackTrace();
+                        }
+                    }
+                    if (post_id.isEmpty()) {
+                        hideDialog();
+                        Toast.makeText(getContext(), getResources().getString(R.string.no_prmium), Toast.LENGTH_SHORT).show();
+                        swipeRefreshLayout.setRefreshing(false);
+                    } else {
+                        hideDialog();
+                        listView.setAdapter(customAdapter);
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    hideDialog();
+                    Toast.makeText(getContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable throwable) {
+                hideDialog();
+                Toast.makeText(getContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
     }
 
     //Array Request

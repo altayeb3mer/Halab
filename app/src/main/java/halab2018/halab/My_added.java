@@ -26,6 +26,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import halab2018.halab.Utils.RetroApi;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
 /**
  * Created by Altayeb on 10/10/2018.
  */
@@ -91,20 +98,139 @@ public class My_added extends Fragment {
             public void onRefresh() {
                 my_post_id.clear();
                 my_post_title.clear();
-                getMyPost();
+//                getMyPost();
+                if (URL.isNetworkConnected(getContext())) {
+                    if (!URL.isInternetAvailable()) {
+                        //getPremium
+                        getPostsRetro();
+                    } else {
+                        hideDialog();
+                        swipeRefreshLayout.setRefreshing(false);
+                        Toast.makeText(getContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    hideDialog();
+                    swipeRefreshLayout.setRefreshing(false);
+                    Toast.makeText(getContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
 
 
-            getMyPost();
-
+//            getMyPost();
+        if (URL.isNetworkConnected(getContext())) {
+            if (!URL.isInternetAvailable()) {
+                //getPremium
+                getPostsRetro();
+            } else {
+                hideDialog();
+                swipeRefreshLayout.setRefreshing(false);
+                Toast.makeText(getContext(), getString(R.string.login_error_network_error), Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            hideDialog();
+            swipeRefreshLayout.setRefreshing(false);
+            Toast.makeText(getContext(), getString(R.string.login_error_no_internet_access), Toast.LENGTH_SHORT).show();
+        }
 
         return view;
     }
 
 
+    private void getPostsRetro() {
+//        OkHttpClient httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new Interceptor() {
+//                    @Override
+//                    public okhttp3.Response intercept(Chain chain) throws IOException {
+//                        okhttp3.Request.Builder ongoing = chain.request().newBuilder();
+//                        ongoing.addHeader("Accept", "application/json;");
+//                        ongoing.addHeader("Content-Type", "application/x-www-form-urlencoded");
+//
+//                        ongoing.addHeader("Authorization", SharedPrefManager.getInstance(getApplicationContext()).GetToken());
+//
+//                        return chain.proceed(ongoing.build());
+//                    }
+//                })
+//                .readTimeout(60, TimeUnit.SECONDS)
+//                .connectTimeout(60, TimeUnit.SECONDS)
+//                .build();
+        swipeRefreshLayout.setRefreshing(true);
+        showDialog();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL.ROOT_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
+        RetroApi.getMyAdded service = retrofit.create(RetroApi.getMyAdded.class);
+
+        HashMap hashMap = new HashMap();
+        hashMap.put("Content-Type", "application/json;charset=UTF-8");
+//                Call<TransResult> call = service.getStringScalar(new SendToCard(cardModel.getCard_no(), s_card_no, "000", cardModel.getMonth() + cardModel.getYear(), s_money, uuid, "moneyTransfer"));
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(c), hashMap);
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(""),hashMap);
+
+//        Call<String> call = service.getStringScalar(new SendToPhoneModel(my_card_no, s_phone,s_sim_type, s_encryptedvalu, my_card_exp_date, s_amount, uuid, "topUp"), hashMap);
+        Call<String> call = service.getStringScalar(Car_tab_layout.section,SharePref.Get_userId(getContext()), hashMap);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, retrofit2.Response<String> response) {
+                try {
+//                    JSONObject OBject = new JSONObject(response.body());
+                    JSONArray jsonArray = new JSONArray(response.body());
+                    for (int i = 0; i < jsonArray.length(); i++) {
+                        try {
+                            JSONObject object = (JSONObject) jsonArray.get(i);
+                            String message = object.getString("message");
+                            String id = object.getString("id");
+                            String title = object.getString("title");
+
+                            if (message.equals("yes")) {
+                                my_post_id.add(i, id.toString().trim());
+                                my_post_title.add(i, title.toString().trim());
+
+
+                            } else {
+                                hideDialog();
+                                Toast.makeText(getContext(), getResources().getString(R.string.sale_empty_dept), Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            hideDialog();
+                            Toast.makeText(getContext(), getResources().getString(R.string.sale_empty_dept), Toast.LENGTH_SHORT).show();
+                            swipeRefreshLayout.setRefreshing(false);
+                            e.printStackTrace();
+                        }
+                    }
+                    if (my_post_id.isEmpty()) {
+                        hideDialog();
+                        swipeRefreshLayout.setRefreshing(false);
+                    } else {
+                        hideDialog();
+                        arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, my_post_title);
+                        listView.setAdapter(arrayAdapter);
+                        hideDialog();
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    hideDialog();
+                    Toast.makeText(getContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                    swipeRefreshLayout.setRefreshing(false);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable throwable) {
+                hideDialog();
+                Toast.makeText(getContext(), getString(R.string.login_error_server_not_found), Toast.LENGTH_SHORT).show();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
+    }
 
 
    //Array Request
